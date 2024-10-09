@@ -1,0 +1,104 @@
+
+
+a {
+    text-decoration: none;
+}
+
+.white {
+    color: white;
+}
+
+.image-checkbox {
+    display: none;
+}
+
+.image-label {
+    cursor: pointer;
+    display: inline-block;
+    width: 53px;
+    height: 40px;
+    background-size: cover;
+    
+}
+
+
+.image-label[for="str"] {
+    background-image: url('../images/filter-str-active.png');
+}
+.image-label[for="agi"] {
+    background-image: url('../images/filter-agi-active.png');
+}
+.image-label[for="int"] {
+    background-image: url('../images/filter-int-active.png');
+}
+.image-label[for="uni"] {
+    background-image: url('../images/filter-uni-active.png');
+}
+.image-label[for="diamond"] {
+    background-image: url("https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/herogrid/filter-diamond.png");
+
+}
+
+
+.search-input{
+    background-color: rgb(50, 50, 50);;
+    width: 140px;
+}
+
+.hero-image {
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+
+
+
+.no-background{
+    background-color: rgb(50, 50, 50);
+}
+
+
+.hero-image {
+    position: relative;
+    display: block;
+    width: 230px;
+    height: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-image:hover {
+    transform: scale(1.4);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    
+}
+
+
+.attribut-hero {
+    display: none;
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    align-items: end;
+    transition: opacity 0.3s ease;
+}
+
+
+.hero-image:hover .attribut-hero {
+    display: flex;
+    opacity: 1;
+}

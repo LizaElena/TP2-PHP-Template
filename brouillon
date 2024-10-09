@@ -1,0 +1,65 @@
+<div class="container px-5">
+                <div class="row">
+                    <?php foreach ($heroes as $hero) { ?>
+                        <div class="col-3 mb-3">
+
+                            <a class="hero-image text"  href="detail.php" >
+
+                                <img class="hover-hidde" src="https://cdn.akamai.steamstatic.com/<?php echo $hero['img']?>" width="230" height="120">
+                                
+                                <div class="attribut-hero ">
+
+                                    <img src="./dota-heroes/public/images/<?php echo ($hero['primary_attr'] == "all") ? "uni" : $hero['primary_attr']; ?>-icon.png" alt="" width="30" height="30">
+                                    
+                                    <div class="px-3 ">
+                                        <?php echo $hero['localized_name']?> 
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        </div>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+
+
+
+
+            <div class="navbar navbar-expand-lg ">
+                <div class="collapse navbar-collapse">
+                    <p>FILTRER</p>
+                </div>
+
+                
+                <div class="collapse navbar-collapse">
+                    <div>
+                        <p>ATTRIBUTS</p>
+                    </div>
+                    <form class="form-inline">
+                        <?php foreach ($checkboxes as $checkbox): ?>
+                            <input type="checkbox" id="<?= $checkbox['id']; ?>" class="image-checkbox">
+                            <label class="image-label" for="<?= $checkbox['id']; ?>"></label>
+                        <?php endforeach; ?>
+                    </form>
+                    
+                </div>
+
+                <div>
+                    <p>COMPLEXITÉ</p>
+                </div>
+                
+                <div class="collapse navbar-collapse">
+                    <form class="form-inline">
+                        <?php foreach ($checkboxes1 as $checkbox): ?>
+                            <input type="checkbox" id="<?= $checkbox['id']; ?>" class="image-checkbox">
+                            <label class="image-label" for="<?= $checkbox['id']; ?>"></label>
+                        <?php endforeach; ?>
+                    </form>
+                </div>
+                <div class="search-input collapse navbar-collapse">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="no-background">
+                </div>
+            </div>
