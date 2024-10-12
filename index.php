@@ -147,19 +147,19 @@
                     <div class="collapse navbar-collapse">
                         <div class="px-3 ">COMPLEXITÉ</div>
 
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond1" >
+                        <input class="image-checkbox" type="checkbox" name="" id="diamond1" >
 
                         <label for="diamond" class="image-label"></label>
 
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond2" >
+                        <input class="image-checkbox" type="checkbox" name="" id="diamond2" >
                             
                         <label for="diamond" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond3" >
+                        <input class="image-checkbox" type="checkbox" name="" id="diamond3" >
                             
                         <label for="diamond" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond4" >
+                        <input class="image-checkbox" type="checkbox" name="" id="diamond4" >
                             
                         <label for="diamond" class="image-label"></label>
                         
@@ -172,8 +172,10 @@
                     <div>
                         <div class="search-input collapse navbar-collapse">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input class="no-background" type="text" name="hero_name"
-                                value="">
+                            <input class="no-background" type="text" name="hero_name" id="hero_name"
+                                value="" style="color: #fff;">
+
+                                
 
                         </div>
                     </div>

@@ -7,6 +7,11 @@ $heroes = json_decode($jsonHeroes, true);
 $filteredHeroes = []; 
 $selectedAttributes = [];
 
+if(isset($_POST['hero_name'])){
+    $heroName = $_POST['hero_name']; 
+    
+}
+
 if (isset($_POST['str'])) {
     $selectedAttributes[] = "str";
 }
@@ -23,6 +28,9 @@ if (isset($_POST['uni'])) {
 
 foreach ($heroes as $hero) {
     if (in_array($hero['primary_attr'], $selectedAttributes)) {
+        $filteredHeroes[] = $hero;
+    }
+    elseif(strpos($hero['localized_name'], $heroName) !== false) {
         $filteredHeroes[] = $hero;
     }
 }
