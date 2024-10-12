@@ -3,7 +3,37 @@
 $jsonHeroes = file_get_contents("./dota-heroes/data/heroes.json");
 $heroes = json_decode($jsonHeroes, true);
 
-//print_r($heroes);
+
+$filteredHeroes = []; 
+$selectedAttributes = [];
+
+if (isset($_POST['str'])) {
+    $selectedAttributes[] = "str";
+}
+if (isset($_POST['agi'])) {
+    $selectedAttributes[] = "agi";
+}
+if (isset($_POST['int'])) {
+    $selectedAttributes[] = "int";
+}
+if (isset($_POST['uni'])) {
+    $selectedAttributes[] = "all"; 
+}
+
+
+foreach ($heroes as $hero) {
+    if (in_array($hero['primary_attr'], $selectedAttributes)) {
+        $filteredHeroes[] = $hero;
+    }
+}
+
+if (empty($filteredHeroes)) {
+    $filteredHeroes = $heroes;
+}
+
+
+
+
 
 $url = "https://mapi.cegeplabs.qc.ca/web/heroes/anti-mage";
 

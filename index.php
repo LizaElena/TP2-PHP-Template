@@ -109,73 +109,83 @@
             
             
 
-            <form method="GET">
-                <div class="navbar navbar-expand-lg">
-                    <div class="collapse navbar-collapse">
-                        <p>FILTRER</p>
+            <form method="POST" action="index.php" autocomplete="off">
+                
+                <div class="navbar navbar-expand-lg navbar-custom mx-4">
+                    <div class="collapse navbar-collapse ">
+                        <div>FILTRER</div>
                     </div>
 
-                    <div class=" ">
-                        <p>ATTRIBUTS</p>
-                    </div>
+                    
 
                     <div class="collapse navbar-collapse">
-                        <!-- Filtres pour les attributs -->
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="str" id="str" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('str', $_GET['attribute'])) echo 'checked'; ?>>
+                        <div class="px-3">ATTRIBUTS</div>
+                        
+                        
+                        
+                        <input class="image-checkbox" type="checkbox" name="str"  id="str" >
+                            
                         <label for="str" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="agi" id="agi" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('agi', $_GET['attribute'])) echo 'checked'; ?>>
+                        <input class="image-checkbox" type="checkbox" name="agi"  id="agi" >
+                        
                         <label for="agi" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="int" id="int" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('int', $_GET['attribute'])) echo 'checked'; ?>>
+                        <input class="image-checkbox" type="checkbox" name="int"  id="int" >
+                        
                         <label for="int" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="uni" id="uni" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('all', $_GET['attribute'])) echo 'checked'; ?>>
+                        <input class="image-checkbox" type="checkbox" name="uni"  id="uni" >
+                        
                         <label for="uni" class="image-label"></label>
+
+                        
                     </div>
 
-                    <div class="">
-                        <p>COMPLEXITÉ</p>
-                    </div>
+                    
 
                     <div class="collapse navbar-collapse">
-                        
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond1" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('str', $_GET['attribute'])) echo 'checked'; ?>>
+                        <div class="px-3 ">COMPLEXITÉ</div>
+
+                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond1" >
+
                         <label for="diamond" class="image-label"></label>
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond2" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('str', $_GET['attribute'])) echo 'checked'; ?>>
-                        <label for="diamond" class="image-label"></label>
-                        
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond3" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('agi', $_GET['attribute'])) echo 'checked'; ?>>
+
+                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond2" >
+                            
                         <label for="diamond" class="image-label"></label>
                         
-                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond4" onchange="this.form.submit()"
-                            <?php if (isset($_GET['attribute']) && in_array('int', $_GET['attribute'])) echo 'checked'; ?>>
+                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond3" >
+                            
+                        <label for="diamond" class="image-label"></label>
+                        
+                        <input class="image-checkbox" type="checkbox" name="attribute[]" value="" id="diamond4" >
+                            
                         <label for="diamond" class="image-label"></label>
                         
                         
                     </div> 
-                    <!-- Champ texte pour le nom du héros -->
-                    <div class="search-input collapse navbar-collapse">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="no-background" type="text" name="hero_name"
-                            value="<?php echo isset($_GET['hero_name']) ? $_GET['hero_name'] : ''; ?>" onchange="this.form.submit()">
-
+                    <div>
+                        <button class="custum-button " type="submit"  value="" name="submit">SEND</button>
                     </div>
+                    
+                    <div>
+                        <div class="search-input collapse navbar-collapse">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input class="no-background" type="text" name="hero_name"
+                                value="">
+
+                        </div>
+                    </div>
+                    
                 </div>
             </form>                
             
 
-            <div class="container px-5">
-                <div class="row">
-                    <?php foreach ($heroes as $hero) { ?>
-                        <div class="col-3 mb-3">
+            <div class="m-3">
+                <div class="d-flex flex-wrap">
+                    <?php foreach ($filteredHeroes as $hero) { ?>
+                        <div class="mb-3 px-2">
 
                             <a class="hero-image text"  href="detail.php" >
 
