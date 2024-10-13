@@ -1,5 +1,5 @@
 <?php  
-    require_once "./dota-heroes/data/heroes.php"
+    require_once "./dota-heroes/data/heroes.php";
     
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="./public/images/favicon.ico" type="image/x-icon">
-    <title>Dota 2 Heroes</title>
+    <title>Héros et héroÏnes</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -89,20 +89,7 @@
         
             -->
 
-            <?php
-                
-                $checkboxes = [
-                    ['id' => 'str', 'label' => 'Image 1'],
-                    ['id' => 'agi', 'label' => 'Image 2'],
-                    ['id' => 'int', 'label' => 'Image 3'],
-                    ['id' => 'uni', 'label' => 'Image 4'],
-                    ['id' => 'diamond1', 'label' => 'Image 5'],
-                    ['id' => 'diamond2', 'label' => 'Image 6'],
-                    ['id' => 'diamond3', 'label' => 'Image 7'],
-                    ['id' => 'diamond4', 'label' => 'Image 8']
-                ];
-
-            ?>
+            
 
             
         <div class="container ">
@@ -189,7 +176,7 @@
                     <?php foreach ($filteredHeroes as $hero) { ?>
                         <div class="mb-3 px-2">
 
-                            <a class="hero-image text"  href="detail.php" >
+                            <a class="hero-image text"  href="detail.php?localized_name=<?php echo $hero['localized_name'];?>" >
 
                                 <img class="hover-hidde" src="https://cdn.akamai.steamstatic.com/<?php echo $hero['img']?>" width="230" height="120">
                                 

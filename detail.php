@@ -1,4 +1,7 @@
-
+<?php  
+    require_once "./dota-heroes/data/logicDetail.php"
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,29 +9,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="./public/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./dota-heroes/public/images/favicon.ico" type="image/x-icon">
 
-    <!-- NOTE: Title is different for this page -->
-    <title>Dota 2 - Anti-Mage</title>
+    <title>Dota 2 : <?php echo $finalHero['localized_name']; ?> </title>
 
     <!-- TODO: Remove CDN link and include Bootstrap files locally -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./dota-heroes/public/stylesheets/styles.css">
+    <link rel="stylesheet" href="./dota-heroes/public/stylesheets/detail.css">
 
-    <!-- 
-        TODO: Ce code JavaScript doit être enlevé. Le code est pour vous montrer l'exemple du fetch et des propriétés à utiliser pour accéder aux descriptions 
-              Vous devez faire le call à l'API en PHP directement et non en JavaScript (e.g. le code ci-dessous doit être migré dans l'équivalent en PHP).
-     -->
-    <script type="module">
-        fetch("https://dotacoach.gg/_next/data/hQex-UdUEDib_3-cqnDNe/en/heroes/anti-mage.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.pageProps.messages["dota.heroes.npc_dota_hero_antimage.npedesc1"]);
-                console.log(data.pageProps.messages["dota.heroes.npc_dota_hero_antimage.hype"])
-            });
-    </script>
+    
 
 </head>
 <body class="hero-background">
@@ -44,7 +36,11 @@
         - dota.heroes.npc_dota_hero_antimage.hype
 
         Vous pouvez récupérer les autres données à partir du fichier heroes.json (ou vous pouvez les lire à partir du JSON retourné par l'API).
-    -->
+    
+    "dota.abilities.life_stealer_open_wounds.Description"
+    
+    
+        -->
 
     <div>
         <div class="hero-background-gradient"></div>
@@ -61,14 +57,15 @@
                         <span>Agility</span>
                     </div>
                     <div class="mb-3">
-                        <h1>Anti-Mage</h1>
-                        <span class="subheading">Slashes his foes with mana-draining attacks</span>
+                        <h1><?php echo $datasHero['pageProps']['pageProps']['heroUrlName'];?></h1>
+                        <span class="subheading"><?php echo $datasHero['pageProps']['messages']['dota.heroes.'.$finalHero['name'].'.npedesc1'];?></span>
                     </div>
                     <div>
+                        
                         <p>
-                            Should Anti-Mage have the opportunity to gather his full strength, few can stop his
-                            assaults. Draining mana from enemies with every strike or teleporting short distances to
-                            escape an ambush, cornering him is a challenge for any foe.
+                            <?php
+                                echo $datasHero['pageProps']['messages']['dota.heroes.'.$finalHero['name'].'.hype'];
+                            ?>
                         </p>
                     </div>
                     <div>
