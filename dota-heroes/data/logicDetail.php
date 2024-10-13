@@ -19,7 +19,6 @@ $heroUrlName = str_replace(" ", "-", $heroLocalizedName);
 
 if(str_contains($heroUrlName, "'")){
     $heroUrlName = $heroUrlName = str_replace("'", "", $heroUrlName);
-    echo 'wtf';
 }
 
 
@@ -28,6 +27,9 @@ $heroUrlNameForVideo = str_replace(" ", "_", $heroLocalizedName);
 
 $heroUrlNameForVideo = str_replace("-", "", $heroUrlNameForVideo);
 
+if($heroUrlName == "natures-prophet"){
+    $heroUrlNameForVideo = 'furion';
+}
 
 
 $url = 'https://mapi.cegeplabs.qc.ca/web/heroes/'.$heroUrlName;
