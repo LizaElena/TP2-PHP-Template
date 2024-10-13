@@ -37,7 +37,6 @@
 
         Vous pouvez récupérer les autres données à partir du fichier heroes.json (ou vous pouvez les lire à partir du JSON retourné par l'API).
     
-    "dota.abilities.life_stealer_open_wounds.Description"
     
     
         -->
@@ -50,14 +49,31 @@
                 <div class="col-6 gy-5">
                     <div class="mb-5">
                         <!-- FIXME: Faire que le bouton Retour soit beau -->
-                        <a href="index.html">Return BUTTON</a>
+                        <a href="index.php">Return BUTTON</a>
                     </div>
                     <div class="hero-type | mb-2">
-                        <img src="./public/images/agi-icon.png" width="32" height="32" alt="Agility">
-                        <span>Agility</span>
+                        <img src="./dota-heroes/public/images/<?php if($finalHero['primary_attr'] == 'all'){
+                            echo 'uni';
+                            }else{
+                                echo $finalHero['primary_attr'];
+                            }
+                        ?>-icon.png" width="32" height="32" alt="Agility">
+                        <span>
+                            <?php switch($finalHero['primary_attr']){
+                                case 'str' : echo 'STRENGTH';
+                                    break;
+                                case 'agi' : echo 'AGILITY';
+                                    break;
+                                case 'int' : echo 'INTELLIGENCE';
+                                    break;
+                                case 'all' : echo 'POLYVALENT';
+                                    break;
+                                } 
+                            ?>
+                        </span>
                     </div>
                     <div class="mb-3">
-                        <h1><?php echo $datasHero['pageProps']['pageProps']['heroUrlName'];?></h1>
+                        <h1><?php echo $finalHero['localized_name'];?></h1>
                         <span class="subheading"><?php echo $datasHero['pageProps']['messages']['dota.heroes.'.$finalHero['name'].'.npedesc1'];?></span>
                     </div>
                     <div>
@@ -70,15 +86,15 @@
                     </div>
                     <div>
                         <div class="secondary">Attack Type</div>
-                        <img src="./public/images/melee.svg" width="24" height="24">
-                        <span>Melee</span>
+                        <img src="./dota-heroes/public/images/<?php echo strtolower($finalHero['attack_type'])?>.svg" width="24" height="24">
+                        <span><?php echo $finalHero['attack_type']?></span>
                     </div>
                 </div>
                 <div class="col-6">
-                    <video class="hero-render" poster="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.png" autoplay="" preload="auto" loop="" playsinline="">
-                        <source type="video/mp4; codecs=hvc1" src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.mov">
-                        <source type="video/webm" src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.webm">
-                        <img src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/antimage.png">
+                    <video class="hero-render" poster="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/<?php echo $heroUrlNameForVideo?>.png" muted autoplay loop>
+                        <source type="video/mp4; codecs=hvc1" src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/<?php echo $heroUrlNameForVideo?>.mov">
+                        <source type="video/webm" src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/<?php echo $heroUrlNameForVideo?>.webm">
+                        <img src="https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/<?php echo $heroUrlNameForVideo?>.png">
                     </video>
                 </div>
             </div>
@@ -89,66 +105,111 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-3">
-                    <img src="https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png">
+                    <img src="https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/<?php echo $heroUrlNameForVideo?>.png">
                 </div>
                 <div class="col-2 d-flex flex-column align-items-start gap-2 border-end">
                     <div class="d-flex align-items-center gap-2">
-                        <img src="./public/images/str-icon.png" width="38" height="38" alt="Strength">
-                        <span class="stat">19</span>
-                        <span class="stat-increase">+1.6</span>
+                        <img src="./dota-heroes/public/images/str-icon.png" width="38" height="38" alt="Strength">
+                        <span class="stat"><?php echo $finalHero['base_str']?></span>
+                        <span class="stat-increase">+<?php echo $finalHero['str_gain']?></span>
                     </div>
                     <div class="d-flex align-items-center gap-2">
-                        <img src="./public/images/agi-icon.png" width="38" height="38" alt="Agility">
-                        <span class="stat">24</span>
-                        <span class="stat-increase">+2.8</span>
+                        <img src="./dota-heroes/public/images/agi-icon.png" width="38" height="38" alt="Agility">
+                        <span class="stat"><?php echo $finalHero['base_agi']?></span>
+                        <span class="stat-increase">+<?php echo $finalHero['agi_gain']?></span>
                     </div>
                     <div class="d-flex align-items-center gap-2">
-                        <img src="./public/images/int-icon.png" width="38" height="38" alt="Intelligence">
-                        <span class="stat">12</span>
-                        <span class="stat-increase">+1.8</span>
+                        <img src="./dota-heroes/public/images/int-icon.png" width="38" height="38" alt="Intelligence">
+                        <span class="stat"><?php echo $finalHero['base_int']?></span>
+                        <span class="stat-increase">+<?php echo $finalHero['int_gain']?></span>
                     </div>
                 </div>
                 <div class="col-4 ps-5">
                     <div class="row mb-2">
                         <div class="col-4">
                             <span class="role">Carry</span>
-                            <div class="role-bar has-role"></div>
+                            <div class="role-bar 
+                            <?php
+                                if (in_array('Carry', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Support</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Support', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Nuker</span>
-                            <div class="role-bar has-role"></div>
+                            <div class="role-bar 
+                            <?php
+                                if (in_array('Nuker', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-4">
                             <span class="role">Disabler</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Disabler', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Jungler</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Jungler', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Durable</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Durable', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
                             <span class="role">Escape</span>
-                            <div class="role-bar has-role"></div>
+                            <div class="role-bar 
+                            <?php
+                                if (in_array('Escape', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Pusher</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Pusher', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                         <div class="col-4">
                             <span class="role">Initiator</span>
-                            <div class="role-bar"></div>
+                            <div class="role-bar
+                            <?php
+                                if (in_array('Initiator', $finalHero['roles'])) {
+                                    echo 'has-role';
+                                }
+                            ?>"></div>
                         </div>
                     </div>
                 </div>

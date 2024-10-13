@@ -9,15 +9,28 @@ foreach($heroes as $hero){
     
     if(strtolower($hero['localized_name']) == $heroLocalizedName){
         $finalHero = $hero;
-        // echo strtolower($hero['localized_name']);
-        // echo $heroLocalizedName;
         break;
     }
+
     
 }
 
+$heroUrlName = str_replace(" ", "-", $heroLocalizedName);
 
-$url = 'https://mapi.cegeplabs.qc.ca/web/heroes/'.$heroLocalizedName;
+if(str_contains($heroUrlName, "'")){
+    $heroUrlName = $heroUrlName = str_replace("'", "", $heroUrlName);
+    echo 'wtf';
+}
+
+
+
+$heroUrlNameForVideo = str_replace(" ", "_", $heroLocalizedName);
+
+$heroUrlNameForVideo = str_replace("-", "", $heroUrlNameForVideo);
+
+
+
+$url = 'https://mapi.cegeplabs.qc.ca/web/heroes/'.$heroUrlName;
 
 echo $url;
 
@@ -29,13 +42,10 @@ $ch = curl_init();
  $response = curl_exec($ch);
 
  if (curl_errno($ch)) {
-     echo "Error: " . curl_error($ch);
+    echo "Error: " . curl_error($ch);
  } else {
      
-     $datasHero = json_decode($response, true);
-    
-     
-    //print_r($datas);
+    $datasHero = json_decode($response, true);
      
  }
 
