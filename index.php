@@ -176,7 +176,7 @@
                     <?php foreach ($filteredHeroes as $hero) { ?>
                         <div class="mb-3 px-2">
 
-                            <a class="hero-image text"  href="detail.php?localized_name=<?php echo $hero['localized_name'];?>" >
+                            <a class="hero-image text"  href="detail.php?name=<?php echo $hero['name'];?>" >
 
                                 <img class="hover-hidde" src="https://cdn.akamai.steamstatic.com/<?php echo $hero['img']?>" width="230" height="120">
                                 
