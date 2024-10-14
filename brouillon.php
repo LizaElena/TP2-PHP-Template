@@ -1,45 +1,16 @@
 <?php
 
-$filteredHeroes = $heroes;
 
-if (isset($_POST['str'])) {
-    foreach ($heroes as $hero) {
-        if ($hero['primary_attr'] == "str") {
-            $filteredHeroes[] = $hero; 
-        }
-    }
-} elseif (isset($_POST['agi'])) {
-    foreach ($heroes as $hero) {
-        if ($hero['primary_attr'] == "agi") {
-            $filteredHeroes[] = $hero;
-        }
-    }
-} elseif (isset($_POST['int'])) {
-    foreach ($heroes as $hero) {
-        if ($hero['primary_attr'] == "int") {
-            $filteredHeroes[] = $hero;
-        }
-    }
-} elseif (isset($_POST['uni'])) {
-    foreach ($heroes as $hero) {
-        if ($hero['primary_attr'] == "all") {
-            $filteredHeroes[] = $hero;
-        }
-    }
+if ($nextHeroIndex !== null) {
+    echo "Index du héros suivant : " . $nextHeroIndex . "\n";
 } else {
-    
-    $filteredHeroes = $heroes;
+    echo "Il n'y a pas de héros suivant.\n"; // Pas de héros suivant
 }
 
-function getHeroes($heroes, $attribute) {
-    $filteredHeroes = []; 
-    foreach ($heroes as $hero) {
-        if ($hero['primary_attr'] == $attribute) {
-            $filteredHeroes[] = $hero; 
-        }
-    }
-
-    return $filteredHeroes; 
+if ($prevHeroIndex !== null) {
+    echo "Index du héros précédent : " . $prevHeroIndex . "\n";
+} else {
+    echo "Il n'y a pas de héros précédent.\n"; // Pas de héros précédent
 }
 
 {

@@ -47,9 +47,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 gy-5">
+                    <!-- FIXME: Faire que le bouton Retour soit beau -->
                     <div class="mb-5">
-                        <!-- FIXME: Faire que le bouton Retour soit beau -->
-                        <a href="index.php">Return BUTTON</a>
+                        <a href="detail.php?name=<?php if($prevHeroIndex !==null){echo $heroes[$prevHeroIndex]['name'];}
+                        else{echo $localHero['name'];}?>">PREVIEW</a>
+
+                        <a href="index.php">ALL HEROES</a>
+                        
+                        <a href="detail.php?name=<?php if($nextHeroIndex !==null){echo $heroes[$nextHeroIndex]['name'];}
+                        else{echo $localHero['name'];}?>">NEXT</a>
                     </div>
                     <div class="hero-type | mb-2">
                         <img src="./dota-heroes/public/images/<?php if($localHero['primary_attr'] == 'all'){

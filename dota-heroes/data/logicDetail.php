@@ -10,16 +10,56 @@ $heroName =  $_GET['name'];
 $heroLocalizedName = substr($heroName, 14);
 
 
-foreach($heroes as $hero){
+foreach($heroes as $key => $hero){
     
     if($hero['name'] == $heroName){
         $localHero = $hero;
-
+        $indexHero = $key;
         break;
     }
-
     
 }
+
+
+
+$keys = array_keys($heroes); 
+
+if (isset($indexHero) && $indexHero !== null) {
+    
+    $nextHeroIndex = null;
+
+   
+    foreach ($keys as $index => $key) {
+        if ($key == $indexHero) {
+            
+            if (isset($keys[$index + 1])) {
+                $nextHeroIndex = $keys[$index + 1]; 
+            }
+            break; 
+        }
+    }
+
+
+} 
+
+if (isset($indexHero) && $indexHero !== null) {
+    
+    $prevHeroIndex = null;
+
+    
+    foreach ($keys as $index => $key) {
+        if ($key == $indexHero) {
+        
+            if ($index > 0 && isset($keys[$index - 1])) {
+                $prevHeroIndex = $keys[$index - 1]; 
+            }
+            break; 
+        }
+    }
+
+}
+
+
 
 $heroUrlName = str_replace("_", "-", $heroLocalizedName);
 
@@ -68,6 +108,8 @@ switch($heroLocalizedName){
     case 'shredder' : $heroUrlName = 'timbersaw';
         break;
     case 'abyssal_underlord' : $heroUrlName = 'underlord';
+        break;
+    case 'obsidian_destroyer' : $heroUrlName = 'outworld-devourer';
         break;
         
 }

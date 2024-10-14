@@ -24,37 +24,6 @@
 </head>
 <body class="hero-background">
 
-    
-
-        <div class="white mt-3 ">
-            <div class="nav d-flex justify-content-around ">
-                <div class="nav-item">
-                    <img src="./dota-heroes/public/images/dota2_logo_horiz.png" width="200">
-                </div>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">JEU</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">HÉROS ET HÉROÏNES</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">ACTUALITÉS</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">E-SPORT</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">CONNEXION</a>
-                    <a class="nav-link" href="#">LANGUE</a>
-                </div>
-                <div class="nav-item d-flex ">
-                    <i class="fa-brands fa-steam" style="color: #232323;"></i>
-                    <a class="nav-link" href="#">JOUER (GRATUITEMENT)</a>
-                </div>
-            </div>
-        </div>
-
-    
 
     <div class="container">
         <div class="text-center py-5">
