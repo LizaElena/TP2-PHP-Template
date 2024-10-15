@@ -13,6 +13,9 @@
 
     <title>Dota 2 : <?php echo $localHero['localized_name']; ?> </title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- TODO: Remove CDN link and include Bootstrap files locally -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -24,38 +27,26 @@
 
 </head>
 <body class="hero-background">
-    <!-- 
-        Pour cette page, il faut récupérer un paramètre de l'URL de manière à identifier le héro de manière unique (e.g. le "name" dans le JSON)
-        À parti de cet identifiant, nous allons pouvoir aller chercher les données du héro pour pouvoir les afficher.
-
-        Nous utiliserons ce site pour obtenir les données, car il contient les descriptions pour les héros.
-
-        https://dotacoach.gg/_next/data/hQex-UdUEDib_3-cqnDNe/en/heroes/anti-mage.json
-
-        - dota.heroes.npc_dota_hero_antimage.npedesc1
-        - dota.heroes.npc_dota_hero_antimage.hype
-
-        Vous pouvez récupérer les autres données à partir du fichier heroes.json (ou vous pouvez les lire à partir du JSON retourné par l'API).
     
-    
-    
-        -->
-
     <div>
         <div class="hero-background-gradient"></div>
 
         <div class="container">
             <div class="row">
                 <div class="col-6 gy-5">
-                    <!-- FIXME: Faire que le bouton Retour soit beau -->
-                    <div class="mb-5">
-                        <a href="detail.php?name=<?php if($prevHeroIndex !==null){echo $heroes[$prevHeroIndex]['name'];}
-                        else{echo $localHero['name'];}?>">PREVIEW</a>
+                    
+                    <div class=" d-flex mb-5">
+                        <a class="buttonHero d-flex justify-content-center align-items-center" href="detail.php?name=<?php if($prevHeroIndex !==null){echo $heroes[$prevHeroIndex]['name'];}
+                        else{echo $localHero['name'];}?>"><i class="fa-solid fa-chevron-left"></i></a>
 
-                        <a href="index.php">ALL HEROES</a>
-                        
-                        <a href="detail.php?name=<?php if($nextHeroIndex !==null){echo $heroes[$nextHeroIndex]['name'];}
-                        else{echo $localHero['name'];}?>">NEXT</a>
+                        <a class="buttonAllHero d-flex flex-wrap justify-content-center align-items-center" href="index.php">
+                            <?php for ($i=0; $i<6; $i++) { ?>
+                                <i class="fa-regular fa-square px-1"></i>
+                            <?php }?>
+                        </a>
+
+                        <a class="buttonHero d-flex justify-content-center align-items-center" href="detail.php?name=<?php if($nextHeroIndex !==null){echo $heroes[$nextHeroIndex]['name'];}
+                        else{echo $localHero['name'];}?>"><i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                     <div class="hero-type | mb-2">
                         <img src="./dota-heroes/public/images/<?php if($localHero['primary_attr'] == 'all'){

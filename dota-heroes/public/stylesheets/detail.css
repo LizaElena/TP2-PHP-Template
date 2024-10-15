@@ -1,0 +1,33 @@
+
+
+.buttonHero {
+    
+    width: 30px;
+    height: 64px;
+    border: 2px solid #fff;
+    position: relative;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: .1s;
+    opacity: .1;
+    cursor: pointer;
+}
+
+.buttonAllHero {
+    width: 100px;
+    height: 64px;
+    border: 2px solid #fff;
+    position: relative;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: .1s;
+    opacity: .1;
+    cursor: pointer;
+}
+
+.buttonAllHero:hover, .buttonHero:hover {
+    transform: scale(1.1);
+    opacity: .5;
+    z-index: 1;
+    
+}

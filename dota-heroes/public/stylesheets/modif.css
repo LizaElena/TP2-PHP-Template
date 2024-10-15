@@ -121,13 +121,19 @@ a {
 .custum-button {
     background-color: inherit;
     border: none;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: none;
     color: #fff;
+    transition-timing-function: ease-in-out;
+    transition-duration: .1s;
+    opacity: .3;
+    cursor: pointer;
 }
 
 .custum-button:hover {
-    border: 2px solid #000;
-    
+    transform: scale(1.1);
+    opacity: .5;
+    z-index: 1;
     opacity: 1;
 }
 
