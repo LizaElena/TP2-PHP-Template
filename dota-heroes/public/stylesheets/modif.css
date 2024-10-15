@@ -146,3 +146,7 @@ input[type="checkbox"]:checked + .image-label{
     background-size: 35px;
     background-repeat: no-repeat;
 }
+
+input:focus{
+    outline: none;
+}

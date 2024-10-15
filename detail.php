@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-6 gy-5">
                     
-                    <div class=" d-flex mb-5">
+                    <div class=" d-flex mb-5 ">
                         <a class="buttonHero d-flex justify-content-center align-items-center" href="detail.php?name=<?php if($prevHeroIndex !==null){echo $heroes[$prevHeroIndex]['name'];}
                         else{echo $localHero['name'];}?>"><i class="fa-solid fa-chevron-left"></i></a>
 
