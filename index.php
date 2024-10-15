@@ -20,7 +20,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./dota-heroes/public/stylesheets/styles.css">
-    <link rel="stylesheet" href="./dota-heroes/public/stylesheets/modif.css">
+    <link rel="stylesheet" href="./dota-heroes/public/stylesheets/heroes.css">
 </head>
 <body class="hero-background">
 
